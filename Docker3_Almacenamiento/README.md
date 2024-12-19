@@ -7,6 +7,7 @@ Este informe detalla los pasos realizados para configurar y gestionar volúmenes
 ## **1. Creación y Uso de Volúmenes**
 
 ### **1.1 Creación de volúmenes**
+
 Se crearon dos volúmenes llamados `volumen_datos` y `volumen_web` utilizando la siguiente orden:
 
 ```bash
@@ -31,6 +32,7 @@ docker volume create volumen_web
    ```
 
 ### **1.3 Proceso para borrar `volumen_datos`**
+
 1. Se detuvo y eliminó el contenedor `c2`:
 
    ```bash
@@ -39,11 +41,13 @@ docker volume create volumen_web
    ```
 
 2. Se procedió al borrado del volumen:
+
    ```bash
    docker volume rm volumen_datos
    ```
 
 ### **1.4 Creación y uso del archivo `index.html` en `c1`**
+
 1. Se creó y copió el archivo `index.html` al contenedor `c1`:
 
    ```bash
@@ -58,13 +62,15 @@ docker volume create volumen_web
 </p>
 
 1. Posteriormente, se eliminó el contenedor `c1` y se creó el contenedor `c3`, montando el mismo volumen `volumen_web` y configurándolo para servir en el puerto `8081`:
-   ```bash
+
+  ```bash
    docker stop c1
    docker rm c1
    docker run -d --name c3 -p 8081:80 -v volumen_web:/var/www/html php:7.4-apache
    ```
 
 #### **Pantallazos entregados**:
+
 - **Pantallazo de los volúmenes creados (`volumen_datos` y `volumen_web`)**.
 
 <p align="center">
@@ -116,6 +122,10 @@ Se creó un directorio local llamado `saludo` con un archivo `index.html`, que f
    echo '<h1>HOLA SOY Sergio Morato</h1>' > saludo/index.html
    ```
 
+<p align="center">
+  <img src="imagenes\Bind_1.png" alt="Conf">
+</p>
+
 ### **2.2 Arranque de contenedores con bind mount**
 
 1. **Arranque del contenedor `c1` (puerto 8181)**:
@@ -143,11 +153,34 @@ Se verificó que los cambios eran visibles accediendo a los contenedores `c1` (p
 #### **Pantallazos entregados**:
 
 - **Pantallazo del comando para arrancar `c1` (puerto 8181)**.
-  
+
+<p align="center">
+  <img src="imagenes\Bind_2.png" alt="Conf">
+</p>
+
 - **Pantallazo del comando para arrancar `c2` (puerto 8282)**.
+
+<p align="center">
+  <img src="imagenes\Bind_3.png" alt="Conf">
+</p>
+
 - **Pantallazo mostrando el contenido de `index.html` en `c1`**.
+
+<p align="center">
+  <img src="imagenes\Bind_5.png" alt="Conf">
+</p>
+
 - **Pantallazo mostrando el contenido de `index.html` en `c2`**.
+
+<p align="center">
+  <img src="imagenes\Bind_4.png" alt="Conf">
+</p>
+
 - **Pantallazo accediendo a los contenedores después de modificar `index.html`.**
+
+<p align="center">
+  <img src="imagenes\Bind_6.png" alt="Conf">
+</p>
 
 ---
 
@@ -160,5 +193,4 @@ Esta actividad permitió comprender el uso y gestión de volúmenes en Docker, t
 ## **Autor**
 - Sergio Morato
 
---- 
-
+---

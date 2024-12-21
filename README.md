@@ -4,7 +4,7 @@ Este repositorio contiene diferentes actividades relacionadas con Docker, organi
 
 ## **Índice**
 
-1. [Docker1 - Introducción](Docker1_Introduccion\README.md)  
+1. [Docker1 - Introducción](Docker1_Introduccion/README.md)  
    Introducción básica a Docker, sus conceptos principales y cómo instalarlo.
 
 2. [Docker2 - Imágenes](Docker2_Imagenes\README.md)  
